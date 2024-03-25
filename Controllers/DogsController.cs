@@ -1,3 +1,5 @@
+using csharp_dog_api.Models;
+
 namespace csharp_dog_api.Controllers;
 
 [ApiController]
@@ -8,6 +10,15 @@ namespace csharp_dog_api.Controllers;
 public class DogsController : ControllerBase
 
 {
+    private readonly DogsService _dogsService;
+
+    public DogsController(DogsService dogsService)
+
+    {
+        _dogsService = dogsService;
+    }
+
+
     [HttpGet("test")]
     public ActionResult<string> TestApi()
     {
@@ -21,5 +32,26 @@ public class DogsController : ControllerBase
             return BadRequest(error.Message);
         }
     }
+
+    public ActionResult<List<Dog>> GetDogs()
+    {
+        try
+        {
+            List<Dog> dogs = _dogsService.GetDogs();
+            return Ok(dogs);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
 }
 
+public class DogsService
+{
+    internal List<Dog> GetDogs()
+    {
+        throw new NotImplementedException();
+    }
+}
