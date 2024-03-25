@@ -8,7 +8,7 @@ namespace csharp_dog_api.Controllers;
 public class DogsController : ControllerBase
 
 {
-    [HttpGet]
+    [HttpGet("test")]
     public ActionResult<string> TestApi()
     {
         try
