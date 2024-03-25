@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS accounts (
 ) default charset utf8mb4 COMMENT '';
 
 CREATE TABLE dogs (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, stray BOOLEAN DEFAULT false, color VARCHAR(25) NOT NULL, name VARCHAR(25) NOT NULL, size ENUM(small, medium, large), NOT NULL
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, stray BOOLEAN DEFAULT false, color VARCHAR(25) NOT NULL, name VARCHAR(25) NOT NULL, size ENUM(small, medium, large) NOT NULL
 );
 
 --NOTE dummy data; just for this example usually not necessary
