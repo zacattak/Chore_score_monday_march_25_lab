@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    image: your-dockerhub-username/Chore_score_monday_march_25_lab:latest
+    restart: unless-stopped
+    env_file:
+      - Chore_score_monday_march_25_lab-env
+    ports:
+      - "7045:80"
