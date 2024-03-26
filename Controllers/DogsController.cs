@@ -1,4 +1,5 @@
 using csharp_dog_api.Models;
+using csharp_dog_api.Services;
 
 namespace csharp_dog_api.Controllers;
 
@@ -48,10 +49,3 @@ public class DogsController : ControllerBase
     }
 }
 
-public class DogsService
-{
-    internal List<Dog> GetDogs()
-    {
-        throw new NotImplementedException();
-    }
-}
