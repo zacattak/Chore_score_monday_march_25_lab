@@ -19,4 +19,10 @@ public class DogsService
         List<Dog> dogs = _repository.GetDogs();
         return dogs;
     }
+
+    public Dog CreateDog(Dog dogData)
+    {
+        Dog dog = _repository.CreateDog(dogData);
+        return dog;
+    }
 }

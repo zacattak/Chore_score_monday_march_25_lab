@@ -47,5 +47,20 @@ public class DogsController : ControllerBase
             return BadRequest(error.Message);
         }
     }
+
+    [HttpPost]
+    public ActionResult<Dog> CreateDog([FromBody] Dog dogData)
+    {
+        try
+        {
+            Dog dog = _dogsService.CreateDog(dogData);
+            return Ok(dog);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
 }
 

@@ -18,4 +18,24 @@ public class DogsRepository
 
         return dogs;
     }
+
+    internal Dog CreateDog(Dog dogData)
+    {
+        string badSqlThatWillGetYouInTrouble = @$"
+        INSERT INTO
+        dogs(stray, color, name, size)
+        VALUES({dogData.Stray}, {dogData.Color}, {dogData.Name}, {dogData.Size}),
+        SELECT * FROM dogs WHERE id = LAST_INSERT_ID()";
+
+        string goodSql = @"
+        INSERT INTO 
+        dogs(stray, color, name, size)
+        VALUES(@Stray, @Color, @Name, @Size);
+
+        SELECT * FROM dogs WHERE id = LAST_INSERT_ID()
+        ";
+
+        Dog dog = _db.Query<Dog>(goodSql, dogData).FirstOrDefault();
+        return dog;
+    }
 }
