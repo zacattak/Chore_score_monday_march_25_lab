@@ -33,7 +33,7 @@ public class DogsController : ControllerBase
             return BadRequest(error.Message);
         }
     }
-
+    [HttpGet]
     public ActionResult<List<Dog>> GetDogs()
     {
         try

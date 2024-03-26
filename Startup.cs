@@ -1,3 +1,4 @@
+using csharp_dog_api.Repositories;
 using csharp_dog_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +37,8 @@ public class Startup
     services.AddScoped<AccountService>();
 
     services.AddScoped<DogsService>();
+
+    services.AddScoped<DogsRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
